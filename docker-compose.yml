@@ -1,0 +1,21 @@
+services:
+  gateway:
+    build: .
+    container_name: dotnetfileportal_gateway
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5273
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=${JWT_ISSUER}
+      - Jwt__Audience=${JWT_AUDIENCE}
+      - Jwt__Duration=${JWT_DURATION}
+      - GlobalConfiguration__BaseUrl=${BASE_URL}
+    ports:
+      - "5001:5273"
+    networks:
+      fileupload_file_upload_network:
+        ipv4_address: 172.16.0.5
+
+networks:
+  fileupload_file_upload_network:
+    external: true
