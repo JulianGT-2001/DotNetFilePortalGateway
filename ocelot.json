@@ -5,8 +5,8 @@
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "172.16.0.4",
-                    "Port": "5000"
+                    "Host": "localhost",
+                    "Port": "5001"
                 }
             ],
             "UpstreamPathTemplate": "/api/Auth/register",
@@ -14,9 +14,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "",
                 "AllowedScopes": []
-            },
-            "AddHeadersToDownstreamRequest": {
-                "X-Forwarded-From": "Gateway-Ocelot"
             }
         },
         {
@@ -24,8 +21,8 @@
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "172.16.0.4",
-                    "Port": "5000"
+                    "Host": "localhost",
+                    "Port": "5001"
                 }
             ],
             "UpstreamPathTemplate": "/api/Auth/login",
@@ -33,9 +30,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "",
                 "AllowedScopes": []
-            },
-            "AddHeadersToDownstreamRequest": {
-                "X-Forwarded-From": "Gateway-Ocelot"
             }
         },
         {
@@ -43,8 +37,8 @@
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "172.16.0.4",
-                    "Port": "5000"
+                    "Host": "localhost",
+                    "Port": "5001"
                 }
             ],
             "UpstreamPathTemplate": "/api/File",
@@ -52,9 +46,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "GatewayAuthentication",
                 "AllowedScopes": []
-            },
-            "AddHeadersToDownstreamRequest": {
-                "X-Forwarded-From": "Gateway-Ocelot"
             }
         },
         {
@@ -62,8 +53,8 @@
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "172.16.0.4",
-                    "Port": "5000"
+                    "Host": "localhost",
+                    "Port": "5001"
                 }
             ],
             "UpstreamPathTemplate": "/api/File/{id}",
@@ -71,9 +62,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "GatewayAuthentication",
                 "AllowedScopes": []
-            },
-            "AddHeadersToDownstreamRequest": {
-                "X-Forwarded-From": "Gateway-Ocelot"
             }
         },
         {
@@ -81,8 +69,8 @@
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "172.16.0.4",
-                    "Port": "5000"
+                    "Host": "localhost",
+                    "Port": "5001"
                 }
             ],
             "UpstreamPathTemplate": "/api/File/{id}/download",
@@ -90,9 +78,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "GatewayAuthentication",
                 "AllowedScopes": []
-            },
-            "AddHeadersToDownstreamRequest": {
-                "X-Forwarded-From": "Gateway-Ocelot"
             }
         }
     ],

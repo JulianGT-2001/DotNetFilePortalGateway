@@ -2,23 +2,23 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-//using DotNetEnv;
+using DotNetEnv;
 using System.Text;
 
-//Env.Load();
+Env.Load();
 
-// var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
-// var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
-// var jwtDuration = Environment.GetEnvironmentVariable("JWT_DURATION");
-// var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY");
-// var baseUrl = Environment.GetEnvironmentVariable("BASE_URL");
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
+var jwtDuration = Environment.GetEnvironmentVariable("JWT_DURATION");
+var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY");
+var baseUrl = Environment.GetEnvironmentVariable("BASE_URL");
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.Configuration["Jwt:Issuer"] = jwtIssuer;
-// builder.Configuration["Jwt:Audience"] = jwtAudience;
-// builder.Configuration["Jwt:Duration"] = jwtDuration;
-// builder.Configuration["Jwt:Key"] = jwtKey;
+builder.Configuration["Jwt:Issuer"] = jwtIssuer;
+builder.Configuration["Jwt:Audience"] = jwtAudience;
+builder.Configuration["Jwt:Duration"] = jwtDuration;
+builder.Configuration["Jwt:Key"] = jwtKey;
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -26,7 +26,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddJsonFile("ocelot.json");
 
-// builder.Configuration["GlobalConfiguration:BaseUrl"] = baseUrl;
+builder.Configuration["GlobalConfiguration:BaseUrl"] = baseUrl;
 
 var jwtSection = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -59,6 +59,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.Use(async (context, next) =>
+{
+    context.Request.Headers["X-Forwarded-From"] = "Gateway-Ocelot";
+    await next.Invoke();
+});
 
 await app.UseOcelot();
 
