@@ -49,7 +49,7 @@
             }
         },
         {
-            "DownstreamPathTemplate": "/api/Auth/reiniciar_clave_de_autenticacion",
+            "DownstreamPathTemplate": "/api/Auth/{email}/reiniciar_clave_de_autenticacion",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -57,7 +57,7 @@
                     "Port": "5001"
                 }
             ],
-            "UpstreamPathTemplate": "/api/Auth/reiniciar_clave_de_autenticacion",
+            "UpstreamPathTemplate": "/api/Auth/{email}/reiniciar_clave_de_autenticacion",
             "UpstreamHttpMethod": [ "GET" ],
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "GatewayAuthentication",
@@ -65,7 +65,7 @@
             }
         },
         {
-            "DownstreamPathTemplate": "/api/Auth/obtener_clave_de_autenticacion",
+            "DownstreamPathTemplate": "/api/Auth/{email}/obtener_clave_de_autenticacion",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -73,7 +73,7 @@
                     "Port": "5001"
                 }
             ],
-            "UpstreamPathTemplate": "/api/Auth/obtener_clave_de_autenticacion",
+            "UpstreamPathTemplate": "/api/Auth/{email}/obtener_clave_de_autenticacion",
             "UpstreamHttpMethod": [ "GET" ],
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "GatewayAuthentication",
