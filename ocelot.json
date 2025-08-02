@@ -33,6 +33,22 @@
             }
         },
         {
+            "DownstreamPathTemplate": "/api/Auth",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "5001"
+                }
+            ],
+            "UpstreamPathTemplate": "/api/Auth",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthentication",
+                "AllowedScopes": []
+            }
+        },
+        {
             "DownstreamPathTemplate": "/api/File",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
