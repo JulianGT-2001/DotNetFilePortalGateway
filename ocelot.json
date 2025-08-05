@@ -81,6 +81,38 @@
             }
         },
         {
+            "DownstreamPathTemplate": "/api/Auth/{email}/reiniciar_clave_de_autenticacion",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "5001"
+                }
+            ],
+            "UpstreamPathTemplate": "/api/Auth/{email}/reiniciar_clave_de_autenticacion",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthentication",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/Auth/{email}/obtener_clave_de_autenticacion",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "5001"
+                }
+            ],
+            "UpstreamPathTemplate": "/api/Auth/{email}/obtener_clave_de_autenticacion",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthentication",
+                "AllowedScopes": []
+            }
+        },
+        {
             "DownstreamPathTemplate": "/api/Auth/{email}/{code}/verificar_token",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
